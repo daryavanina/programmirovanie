@@ -12,7 +12,7 @@ int main() {
 		int ans = n;
 		for (int str = 0; str <= n - k; str++) {
 			int tek = 0;//для подсчета текущ колва белых
-			for (int i = str; i < k; i++) {
+			for (int i = str; i < k+str; i++) {
 				if (s[i] == 'W') { 
 					tek += 1;
 				}
