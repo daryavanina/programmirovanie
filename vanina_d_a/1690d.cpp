@@ -7,18 +7,28 @@ int main() {
 		std::cin >> n;
 		int k = 0;
 		std::cin >> k;
-		std::string s;
+		std::string s = "";
 		std::cin >> s;
 		int ans = n;
-		for (int str = 0; str <= n - k; str++) {
-			int tek = 0;//для подсчета текущ колва белых
-			for (int i = str; i < k+str; i++) {
-				if (s[i] == 'W') { 
+		int tek = 0;
+		for (int i = 0; i < k; i++) {//подсчет белых в первых k элементах
+			if (s[i] == 'W') {
+				tek += 1;
+			}
+		}
+		ans = std::min(ans, tek);
+		for (int i = 0; i < n - k; i++) {
+			if (s[i] != s[i + k ]) {
+				if (s[i] == 'B') {
 					tek += 1;
+				}
+				else {
+ 
+					tek = tek != 0 ? tek -= 1 : 0;
 				}
 			}
 			ans = std::min(ans, tek);
 		}
-		std::cout << ans;
+		std::cout << ans << std::endl;
 	}
 }
