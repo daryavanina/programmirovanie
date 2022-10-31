@@ -7,8 +7,8 @@ int main() {
 		std::string s;
 		std::cin >> s;
 		int n = s.size();
-		int l = 0;
-		int r = n - 1;
+		int l = 0;//последнее вхождение 1
+		int r = n - 1;//первое вхождение 0
 		for (int i = 0; i < n; i++) {
 			if (s[i] == '1') {
 				l = i;
