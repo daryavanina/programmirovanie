@@ -1,32 +1,40 @@
 #include<iostream>
 
-
 int main()
 {
-	int T;
-	std::cin >> T;
-	while (T--) {
-		int n;
+	int t;
+	std::cin >> t;
+	while(t--)
+	{
+		int n = 0;
 		std::string s;
-		std::string ans = "YES\n";
 		std::cin >> n >> s;
-		s += 'W';
-		int sz = 0;
-		int ok = 0;
-		for (int i = 0; i <= n; i++)
+		s = s + "W";
+		int r = 0;
+		int b = 0;
+		int w = 1;
+		for (int i = 0; i <= n; i ++)
+		{
+			if (s[i] == 'W' && b + r == 1) {
+				w = 0;
+			}
 			if (s[i] == 'W') {
-				if (sz && !ok) {
-					ans = "NO\n";
-				}
-				sz = 0;
-				ok = 0;
+				b = 0;
+				r = 0;
 			}
-			else {
-				sz++;
-				if (i && s[i - 1] - 'B' == 'R' - s[i]) {
-					ok = 1;
-				}
+			if (s[i] == 'R') {
+				r = 1;
 			}
-		std::cout << ans;
+			if (s[i] == 'B') {
+				b = 1;
+			}
+		}
+		if (w == 0)
+		{
+			std::cout << "NO"<<std::endl;
+		}
+		else {
+			std::cout << "YES"<<std::endl;
+		}
 	}
 }
