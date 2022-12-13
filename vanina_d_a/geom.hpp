@@ -18,8 +18,14 @@ Rdec2D operator-(const Rdec2D& lhs);
 Rdec2D operator+(const Rdec2D& lhs, const Rdec2D& rhs);
 Rpol2D operator+(const Rpol2D& lhs, const Rpol2D& rhs);
 
+void operator+=(Rdec2D& lhs, Rdec2D& rhs);
+void operator+=(Rpol2D& lhs, Rpol2D& rhs);
+
 Rdec2D operator-(const Rdec2D& lhs, const Rdec2D& rhs);
 Rpol2D operator-(const Rpol2D& lhs, const Rpol2D& rhs);
+
+void operator-=(Rdec2D& lhs, Rdec2D& rhs);
+void operator-=(Rpol2D& lhs, Rpol2D& rhs);
 
 Rdec2D operator*(const Rdec2D& lhs, const double& nmbr);
 Rpol2D operator*(const Rpol2D& lhs, const double& nmbr);
