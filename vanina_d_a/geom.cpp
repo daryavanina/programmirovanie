@@ -22,6 +22,19 @@ Rpol2D operator-(const Rpol2D& lhs) {
 		return { lhs.r, lhs.phi + M_PI };
 	}
 }
+void operator-=(Rdec2D& lhs, Rdec2D& rhs) {
+	lhs.x -= rhs.x;
+	lhs.y -= rhs.y;
+	//return lhs;
+}
+void operator-=(Rpol2D& lhs, Rpol2D& rhs) {
+	Rdec2D vectr1 = ToDec(lhs);
+	Rdec2D vectr2 = ToDec(rhs);
+	vectr1.x -= vectr2.x;
+	vectr1.y -= vectr2.y;
+	lhs = ToPol(vectr1);
+}
+
 Rdec2D operator+(const Rdec2D& lhs, const Rdec2D& rhs) {
 	return { lhs.x + rhs.x, lhs.y + rhs.y };
 }
@@ -29,6 +42,20 @@ Rpol2D operator+(const Rpol2D& lhs, const Rpol2D& rhs) {
 	Rdec2D vectr1 = ToDec(lhs);
 	Rdec2D vectr2 = ToDec(rhs);
 	return ToPol({ vectr1.x + vectr2.x, vectr1.y + vectr2.y });
+}
+
+void operator+=(Rdec2D& lhs, Rdec2D& rhs) {
+	lhs.x += rhs.x;
+	lhs.y += rhs.y;
+}
+
+void operator+=(Rpol2D& lhs, Rpol2D& rhs) {
+	Rdec2D vectr1 = ToDec(lhs);
+	Rdec2D vectr2 = ToDec(rhs);
+	vectr1.x += vectr2.x;
+	vectr1.y += vectr2.y;
+	lhs = ToPol(vectr1);
+	//rhs = ToPol(vectr2);
 }
 
 Rdec2D operator-(const Rdec2D& lhs, const Rdec2D& rhs) {
@@ -51,7 +78,7 @@ Rdec2D operator /(const Rdec2D& lhs, const double& nmbr) {
 	return {lhs.x/nmbr, lhs.y/nmbr };
 }
 Rpol2D operator /(const Rpol2D& lhs, const double& nmbr) {
-	return { lhs.r / nmbr, lhs.phi / nmbr };
+	return { lhs.r / nmbr, lhs.phi };
 }
 
 double Dot(const Rdec2D& lhs, const Rdec2D& rhs) {
