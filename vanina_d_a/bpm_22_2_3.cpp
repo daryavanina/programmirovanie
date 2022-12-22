@@ -20,7 +20,7 @@ int main() {
             output.push_back(input[input.size() / 2 - 1]);
             input.erase(input.begin() + input.size() / 2);
         }
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < output.size(); i++) {
             std::cout << output[i];
         }
     }
